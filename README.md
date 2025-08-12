@@ -227,4 +227,4 @@ python src/hybrid.py
 
 ---
 
-If you want, I can now also **add example plots** from your evaluation results into this README so it matches the GitHub reference style more closely. That will make it visually similar to the BC_RadiogenomicGAN format.
+
