@@ -10,7 +10,7 @@ Our experiments on the **Amazon Reviews Dataset (Appliances)** show that the hyb
 ---
 
 ## Workflow Overview
-![Workflow Diagram](images/workflow.png)  
+
 *Overall pipeline: Data preprocessing → Feature engineering → Individual model training → Hybrid ranking integration → Evaluation.*
 
 ---
