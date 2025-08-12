@@ -45,6 +45,8 @@ We used the [Amazon Reviews 2023](https://amazon-reviews-2023.github.io/) datase
     
 
 ---
+## **Workflow**
+ ![workflow](./workflow.png)
 
 ## **Methods**
 
