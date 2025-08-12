@@ -1,6 +1,3 @@
-Got it. Based on the format used in the [BC_RadiogenomicGAN README](https://github.com/mattthuang/BC_RadiogenomicGAN/tree/main) and the details from your project report, here’s a draft README in that style:
-
----
 
 # **Forecasting of Customer’s Purchasing**
 
@@ -16,7 +13,7 @@ This project investigates multiple recommender system algorithms to improve pers
 
 Our hybrid model achieves **up to 115% improvement** in Recall@20 and NDCG@20 compared to the best-performing single model, effectively mitigating issues of **data sparsity** and **unbalanced user ratings**.
 
----
+
 
 ## **Dataset**
 
@@ -44,7 +41,7 @@ We used the [Amazon Reviews 2023](https://amazon-reviews-2023.github.io/) datase
 - Final sparsity: **99.98%**
     
 
----
+
 ## **Workflow**
  ![workflow](./workflow.png)
 
@@ -102,10 +99,9 @@ We used the [Amazon Reviews 2023](https://amazon-reviews-2023.github.io/) datase
 - Re-ranks combined list using similarity-weighted scores based on user history
     
 - Selects top-k items for final recommendation
-- ![hybird method](./hybird.png)
+ ![hybird method](./hybird.png)
     
 
----
 
 ## **Evaluation Metrics**
 
@@ -122,7 +118,7 @@ We evaluate recommendations using:
 
 Metrics calculated for **k = 20, 50, 100**.
 
----
+
 
 ## **Results**
 
@@ -141,7 +137,7 @@ Metrics calculated for **k = 20, 50, 100**.
 - Hybrid approach significantly boosts short-list recommendation accuracy
     
 
----
+
 
 ## **Project Structure**
 
@@ -160,7 +156,7 @@ Metrics calculated for **k = 20, 50, 100**.
 └── README.md               # Project documentation
 ```
 
----
+
 
 ## **Requirements**
 
@@ -183,7 +179,7 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
----
+
 
 ## **Usage**
 
@@ -210,7 +206,7 @@ python src/hybrid.py
     Evaluation metrics and plots will be saved in /results.
     
 
----
+
 
 ## **References**
 
