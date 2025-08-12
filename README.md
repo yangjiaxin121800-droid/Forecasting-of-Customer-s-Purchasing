@@ -6,18 +6,12 @@ Using Amazon Reviews Dataset user-item interaction data, we implemented four rec
 **Item-based Collaborative Filtering**  
 **Model-based Collaborative Filtering (SVD)**  
 **Content-based Method (Improved)**
-
-Builds feature vectors from product text data (title, category, description, details).
-
-Uses TF-IDF encoding + cosine similarity.
-
-Pros: Handles cold-start problem, provides explainable recommendations.
+Builds feature vectors from product text data (title, category, description, details).  
+Uses TF-IDF encoding + cosine similarity.  
+Pros: Handles cold-start problem, provides explainable recommendations.  
 **Hybrid Method (Innovative)**
-
 Combines all four methods into a unified recommendation pool.
-
 Re-ranks results using weighted similarity scores based on user history ratings.
-
 Achieves >100% improvement in Recall and NDCG for Top-20 and Top-50 compared to the best single model.
 # Dataset
 Source: Amazon Reviews 2023
