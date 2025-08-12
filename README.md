@@ -32,7 +32,7 @@ Our experiments on the **Amazon Reviews Dataset (Appliances)** show that the hyb
 4. **Enhanced Content-based Filtering**  
    - Extracts item features from text (categories, title, description, details).  
    - Applies TF-IDF encoding and cosine similarity against user preference vectors.
-   - ![Enhanced content-based diagram](C:/Users/yang/Desktop/forcast_pic.png)
+   - ![Enhanced content-based diagram](./forcast_pic.png)
 
 ---
 
@@ -42,7 +42,7 @@ Our experiments on the **Amazon Reviews Dataset (Appliances)** show that the hyb
 - Weights similarities by past ratings to produce a **final relevance score**.  
 - Ranks and selects **Top-20, Top-50, Top-100** recommendations.
 
-![Hybrid Method Diagram](C:/Users/yang/Desktop/hybird.png)
+![Hybrid Method Diagram](./hybird.png)
 
 ---
 
