@@ -221,6 +221,6 @@ python src/hybrid.py
 5. Chulyadyo, R., Leray, P., _A Personalized Recommender System from Probabilistic Relational Model and Users’ Preferences_, Procedia Computer Science 2014.
     
 
----
+
 
 
