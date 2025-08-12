@@ -2,9 +2,9 @@
 This project aims to leverage multiple recommendation algorithms to provide personalized product recommendations for e-commerce users, increasing purchase intent and overall sales.
 Using Amazon Reviews Dataset user-item interaction data, we implemented four recommendation methods and proposed an innovative Hybrid Method, which significantly outperforms single models in recommendation accuracy.
 # Implemented Recommendation Algorithms
-**User-based Collaborative Filtering**
-**Item-based Collaborative Filtering**
-**Model-based Collaborative Filtering (SVD)**
+**User-based Collaborative Filtering**  
+**Item-based Collaborative Filtering**  
+**Model-based Collaborative Filtering (SVD)**  
 **Content-based Method (Improved)**
 
 Builds feature vectors from product text data (title, category, description, details).
