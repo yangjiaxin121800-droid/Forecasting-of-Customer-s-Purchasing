@@ -88,6 +88,7 @@ We used the [Amazon Reviews 2023](https://amazon-reviews-2023.github.io/) datase
 - User preference vector computed from rated item vectors
     
 - Cosine similarity for recommendation ranking
+ ![enhanced content-based](./forcast_pic.png)
     
 
   
@@ -99,6 +100,7 @@ We used the [Amazon Reviews 2023](https://amazon-reviews-2023.github.io/) datase
 - Re-ranks combined list using similarity-weighted scores based on user history
     
 - Selects top-k items for final recommendation
+- ![hybird method](./hybird.png)
     
 
 ---
