@@ -1,65 +1,226 @@
-# Hybrid Recommender System for E-commerce Product Prediction
-
-## Introduction
-This repository contains code and resources for our project **"Forecasting of Customer’s Purchasing"**, developed as part of the *ECE 9063/ECE 9603 Data Analytics Foundations* course.  
-We address the problem of generating **personalized product recommendations** by leveraging **collaborative filtering**, **content-based models**, and a **novel hybrid approach**.  
-The hybrid method effectively mitigates challenges such as **data sparsity** and **cold-start problems** by integrating the strengths of four base algorithms.  
-
-Our experiments on the **Amazon Reviews Dataset (Appliances)** show that the hybrid model outperforms the best individual method (enhanced content-based filtering) by **~115% in R@20** and **~32% in R@50**.
+Got it. Based on the format used in the [BC_RadiogenomicGAN README](https://github.com/mattthuang/BC_RadiogenomicGAN/tree/main) and the details from your project report, here’s a draft README in that style:
 
 ---
 
-## Workflow Overview
+# **Forecasting of Customer’s Purchasing**
 
-*Overall pipeline: Data preprocessing → Feature engineering → Individual model training → Hybrid ranking integration → Evaluation.*
+  
 
----
+## **Overview**
 
-## Methodology
+  
 
-### Base Models
-1. **User-based Collaborative Filtering**  
-   - Finds k-nearest neighbors (KNN) using cosine similarity on normalized ratings.  
-   - Adapts quickly to changing user preferences.  
+This project investigates multiple recommender system algorithms to improve personalized product recommendations for e-commerce. Using the Amazon Appliances dataset, we evaluate four single-model approaches—User-Based Collaborative Filtering, Item-Based Collaborative Filtering, Model-Based Collaborative Filtering (SVD), and an enhanced Content-Based Method—before proposing a novel hybrid method that combines their outputs using a similarity-based weighted integration strategy.
 
-2. **Item-based Collaborative Filtering**  
-   - Identifies items similar to those a user liked.  
-   - Efficient but more sensitive to data sparsity.  
+  
 
-3. **Model-based Collaborative Filtering (SVD)**  
-   - Learns latent factors of users/items to capture hidden patterns.  
-
-4. **Enhanced Content-based Filtering**  
-   - Extracts item features from text (categories, title, description, details).  
-   - Applies TF-IDF encoding and cosine similarity against user preference vectors.
-   - ![Enhanced content-based diagram](./forcast_pic.png)
+Our hybrid model achieves **up to 115% improvement** in Recall@20 and NDCG@20 compared to the best-performing single model, effectively mitigating issues of **data sparsity** and **unbalanced user ratings**.
 
 ---
 
-### Hybrid Method
-- Combines recommendations from all four base models into a **merged pool**.  
-- Computes similarity between each candidate item and the user’s history (TF-IDF space).  
-- Weights similarities by past ratings to produce a **final relevance score**.  
-- Ranks and selects **Top-20, Top-50, Top-100** recommendations.
+## **Dataset**
 
-![Hybrid Method Diagram](./hybird.png)
+  
+
+We used the [Amazon Reviews 2023](https://amazon-reviews-2023.github.io/) dataset focusing on the Appliances category.
+
+  
+
+**Raw Data:**
+
+- **Review Table:** 2.12M entries, 8 features (user ID, product ID, rating, text review, timestamp, etc.)
+    
+- **Product Meta Table:** 94k entries, 14 features (title, categories, description, features, images, etc.)
+    
+
+  
+
+**Processed Data:**
+
+- Users filtered to history length between 23–75
+    
+- TF-IDF encoding on combined textual features (categories, title, description, details)
+    
+- Final sparsity: **99.98%**
+    
 
 ---
 
-## Dataset
-- **Source:** [Amazon Reviews 2023 – Appliances Category](https://amazon-reviews-2023.github.io/)  
-- **Raw Data:**  
-  - *Reviews table:* ~2.1M entries, 8 features  
-  - *Product metadata:* ~94k entries, 14 features  
-- **Preprocessing Steps:**  
-  - Remove null/invalid rows  
-  - Merge review & metadata tables on product ID  
-  - Filter users by history length (23–75 purchases)  
-  - TF-IDF vectorization of concatenated text features  
+## **Methods**
+
+  
+
+### **1. User-Based Collaborative Filtering (UBCF)**
+
+- Finds k-nearest users using cosine similarity
+    
+- Adjusts for rating scale bias
+    
+- Predicts ratings from neighbors’ weighted deviations
+    
+
+  
+
+### **2. Item-Based Collaborative Filtering (IBCF)**
+
+- Finds k-nearest items using cosine similarity
+    
+- Adjusts for item rating bias
+    
+- Predicts ratings based on user’s ratings for similar items
+    
+
+  
+
+### **3. Model-Based Collaborative Filtering (SVD)**
+
+- Matrix factorization with user/item latent factors
+    
+- Incorporates user bias, item bias, and global mean
+    
+
+  
+
+### **4. Enhanced Content-Based Method**
+
+- TF-IDF representation of product text features
+    
+- User preference vector computed from rated item vectors
+    
+- Cosine similarity for recommendation ranking
+    
+
+  
+
+### **5. Novel Hybrid Method**
+
+- Combines recommendations from all four models
+    
+- Re-ranks combined list using similarity-weighted scores based on user history
+    
+- Selects top-k items for final recommendation
+    
 
 ---
 
-## Training & Execution
-### Requirements
-```bash
+## **Evaluation Metrics**
+
+  
+
+We evaluate recommendations using:
+
+- **Recall@k**: Ability to retrieve all relevant items
+    
+- **NDCG@k**: Ranking quality of recommended items
+    
+
+  
+
+Metrics calculated for **k = 20, 50, 100**.
+
+---
+
+## **Results**
+
+|**Model**|**R@20**|**N@20**|**R@50**|**N@50**|**R@100**|**N@100**|
+|---|---|---|---|---|---|---|
+|User-CF|0.30|0.29|0.93|0.89|2.13|2.05|
+|Item-CF|0.07|0.06|0.12|0.12|0.35|0.34|
+|SVD (Model-CF)|0.26|0.25|1.13|1.10|2.27|2.23|
+|Content-Based|2.05|2.00|5.68|5.58|9.93|9.78|
+|**Hybrid**|**4.40**|**4.33**|**7.51**|**7.37**|**9.95**|**9.79**|
+
+**Key Takeaways:**
+
+- Content-based outperforms all single collaborative models in sparse data
+    
+- Hybrid approach significantly boosts short-list recommendation accuracy
+    
+
+---
+
+## **Project Structure**
+
+```
+.
+├── data/                   # Raw and processed datasets
+├── notebooks/              # Data exploration and model prototyping
+├── src/
+│   ├── preprocessing.py    # Data cleaning and feature engineering
+│   ├── user_cf.py          # User-based CF
+│   ├── item_cf.py          # Item-based CF
+│   ├── model_cf.py         # SVD-based CF
+│   ├── content_based.py    # Enhanced content-based model
+│   ├── hybrid.py           # Hybrid recommendation system
+├── results/                # Evaluation metrics, plots
+└── README.md               # Project documentation
+```
+
+---
+
+## **Requirements**
+
+- Python 3.9+
+    
+- numpy
+    
+- pandas
+    
+- scikit-learn
+    
+- scipy
+    
+
+  
+
+Install dependencies:
+
+```
 pip install -r requirements.txt
+```
+
+---
+
+## **Usage**
+
+1. **Preprocess Data**
+    
+
+```
+python src/preprocessing.py
+```
+
+2. **Train and Evaluate Models**
+    
+
+```
+python src/user_cf.py
+python src/item_cf.py
+python src/model_cf.py
+python src/content_based.py
+python src/hybrid.py
+```
+
+3. **View Results**
+    
+    Evaluation metrics and plots will be saved in /results.
+    
+
+---
+
+## **References**
+
+1. [Amazon Reviews 2023](https://amazon-reviews-2023.github.io/)
+    
+2. Herlocker, J.L., et al., _An algorithmic framework for performing collaborative filtering_, SIGIR 1999.
+    
+3. Sarwar, B., et al., _Item-based collaborative filtering recommendation algorithms_, WWW 2001.
+    
+4. Koren, Y., et al., _Matrix Factorization Techniques for Recommender Systems_, IEEE Computer 2009.
+    
+5. Chulyadyo, R., Leray, P., _A Personalized Recommender System from Probabilistic Relational Model and Users’ Preferences_, Procedia Computer Science 2014.
+    
+
+---
+
+If you want, I can now also **add example plots** from your evaluation results into this README so it matches the GitHub reference style more closely. That will make it visually similar to the BC_RadiogenomicGAN format.
