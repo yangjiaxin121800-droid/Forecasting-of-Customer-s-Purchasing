@@ -24,8 +24,7 @@ Source: Amazon Reviews 2023
 Review Table: 2,120,000 reviews, 8 attributes.  
 Product Meta Table: 94,000 products, 14 attributes.  
 
-**Preprocessing:**
-
+**Preprocessing:**  
 Removed null and invalid values.  
 Merged review and product meta tables.  
 Filtered users with extreme activity levels.  
