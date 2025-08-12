@@ -25,13 +25,10 @@ Product Meta Table: 94,000 products, 14 attributes.
 
 **Preprocessing:**
 
-Removed null and invalid values.
-
-Merged review and product meta tables.
-
-Filtered users with extreme activity levels.
-
-Extracted and encoded text features using TF-IDF.
+Removed null and invalid values.  
+Merged review and product meta tables.  
+Filtered users with extreme activity levels.  
+Extracted and encoded text features using TF-IDF.  
 # Evaluation Metrics
 **Recall@k** – measures the proportion of relevant items retrieved.
 
