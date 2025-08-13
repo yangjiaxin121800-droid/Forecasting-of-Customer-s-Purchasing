@@ -139,22 +139,15 @@ Metrics calculated for **k = 20, 50, 100**.
 
 
 
-## **Project Structure**
+## Project Structure
 
-```
 .
-├── data/                   # Raw and processed datasets
-├── notebooks/              # Data exploration and model prototyping
-├── src/
-│   ├── preprocessing.py    # Data cleaning and feature engineering
-│   ├── user_cf.py          # User-based CF
-│   ├── item_cf.py          # Item-based CF
-│   ├── model_cf.py         # SVD-based CF
-│   ├── content_based.py    # Enhanced content-based model
-│   ├── hybrid.py           # Hybrid recommendation system
-├── results/                # Evaluation metrics, plots
-└── README.md               # Project documentation
-```
+├── Code/                 # Notebooks / scripts for methods, training, evaluation
+├── Data/                 # Dataset files and any processed/intermediate data
+├── forcast_pic.png       # Figure for enhanced content-based method
+├── hybird.png            # Figure for hybrid method
+├── workflow.png          # Project workflow diagram
+└── README.md             # Project documentation
 
 
 
