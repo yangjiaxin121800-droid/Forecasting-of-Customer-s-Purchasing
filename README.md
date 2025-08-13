@@ -141,14 +141,13 @@ Metrics calculated for **k = 20, 50, 100**.
 
 ## Project Structure
 
-.
-├── Code/                 # Notebooks / scripts for methods, training, evaluation
-├── Data/                 # Dataset files and any processed/intermediate data
-├── forcast_pic.png       # Figure for enhanced content-based method
-├── hybird.png            # Figure for hybrid method
-├── workflow.png          # Project workflow diagram
-└── README.md             # Project documentation
-.
+- **./**
+  - **Code/** - Notebooks / scripts for methods, training, evaluation
+  - **Data/** - Dataset files and any processed/intermediate data
+  - `forcast_pic.png` - Figure for enhanced content-based method
+  - `hybird.png` - Figure for hybrid method
+  - `workflow.png` - Project workflow diagram
+  - `README.md` - Project documentation
 
 
 ## **Requirements**
