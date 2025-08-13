@@ -148,7 +148,7 @@ Metrics calculated for **k = 20, 50, 100**.
 ├── hybird.png            # Figure for hybrid method
 ├── workflow.png          # Project workflow diagram
 └── README.md             # Project documentation
-
+.
 
 
 ## **Requirements**
